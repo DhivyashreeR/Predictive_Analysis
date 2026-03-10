@@ -18,7 +18,7 @@ from xgboost import XGBClassifier
 # ------------------------------------------------------------
 # 2. LOAD DATASET
 # ------------------------------------------------------------
-df = pd.read_excel("Telco_customer_churn.xlsx")
+df = pd.read_excel("Customer_churn_Prediction/Telco_customer_churn.xlsx")
 print("Dataset Loaded Successfully")
 print(df.head())
 print(df.columns)
@@ -153,12 +153,11 @@ plt.show()
 # 8. SAVE MODEL (OPTIONAL)
 # ------------------------------------------------------------
 import joblib
-joblib.dump(log_model, "logistic_model.pkl")
-joblib.dump(rf_model, "random_forest_model.pkl")
-joblib.dump(dt_model, "decision_tree_model.pkl")
-joblib.dump(gb_model, "gradient_boosting_model.pkl")
-joblib.dump(xgb_model, "xgboost_model.pkl")
-
+joblib.dump(log_model, "churn_Models/logistic_model.pkl")
+joblib.dump(rf_model, "churn_Models/random_forest_model.pkl")
+joblib.dump(dt_model, "churn_Models/decision_tree_model.pkl")
+joblib.dump(gb_model, "churn_Models/gradient_boosting_model.pkl")
+joblib.dump(xgb_model, "churn_Models/xgboost_model.pkl")
 
 # ------------------------------------------------------------
 # 9. SAVE ALL MODEL EVALUATIONS TO TEXT FILE
@@ -212,7 +211,7 @@ results.append(f"Accuracy: {best_score:.4f}")
 # ------------------------------------------------------------
 # Write to text file
 # ------------------------------------------------------------
-with open("model_evaluation_results.txt", "w") as f:
+with open("Evaluation/model_evaluation_results.txt", "w") as f:
     for line in results:
         f.write(line + "\n")
 
